@@ -40,9 +40,7 @@ public class ProdutoController {
     public ResponseEntity<?> criarProduto(@RequestBody Produto produto){
         Produto novo = new Produto(
                 produto.getName(),produto.getPrice(),produto.getQuantity());
-        novo.setName(produto.getName());
-        novo.setPrice(produto.getPrice());
-        novo.setQuantity(produto.getQuantity());
+       
         return ResponseEntity.status(HttpStatus.CREATED).body(produtoRepository.save(novo));
     }
     @DeleteMapping("/{id}")
@@ -73,3 +71,4 @@ public class ProdutoController {
                }
     }
 }
+
